@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autism Screening System</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="logo">
+                <h1>🧠 Autism Screening</h1>
+            </div>
+            <div class="controls">
+                <select id="language-select" class="lang-select">
+                    <option value="English">🇬🇧 English</option>
+                    <option value="Hindi">🇮🇳 हिंदी</option>
+                </select>
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">🌙</button>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <button class="nav-btn active" data-tab="about">
+                <span class="icon">ℹ️</span> <span data-i18n="nav_about">About ASD</span>
+            </button>
+            <button class="nav-btn" data-tab="image">
+                <span class="icon">📸</span> <span data-i18n="nav_image">Image Screening</span>
+            </button>
+            <button class="nav-btn" data-tab="questionnaire">
+                <span class="icon">📋</span> <span data-i18n="nav_quiz">Questionnaire</span>
+            </button>
+            <button class="nav-btn" data-tab="centers">
+                <span class="icon">📍</span> <span data-i18n="nav_centers">Centers</span>
+            </button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- About Section -->
+            <section id="about" class="tab-content active">
+                <div class="card fade-in">
+                    <h2 data-i18n="about_title">What is Autism Spectrum Disorder (ASD)?</h2>
+                    <div id="about-content" class="markdown-content">
+                        <!-- Dynamic Content Loaded via JS based on Language -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Image Screening Section -->
+            <section id="image" class="tab-content">
+                <div class="card fade-in">
+                    <h2 data-i18n="image_title">Upload Face Image for Screening</h2>
+                    <div class="upload-area" id="drop-zone">
+                        <input type="file" id="image-upload" accept="image/*" hidden>
+                        <div class="upload-placeholder">
+                            <span class="upload-icon">☁️</span>
+                            <p data-i18n="upload_prompt">Drag & Drop or Click to Upload</p>
+                        </div>
+                        <img id="preview-image" src="" alt="Preview" class="hidden">
+                    </div>
+                    <button id="predict-image-btn" class="primary-btn" disabled data-i18n="btn_predict">Predict</button>
+
+                    <div id="image-result" class="result-box hidden">
+                        <h3>Result</h3>
+                        <img id="annotated-image" src="" alt="Result">
+                        <div class="info-note">
+                            <p data-i18n="image_note">⚠ Note: Image-based results are experimental. Please use the
+                                Questionnaire for better accuracy.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Questionnaire Section -->
+            <section id="questionnaire" class="tab-content">
+                <div class="card fade-in">
+                    <h2 data-i18n="quiz_title">Screening Questionnaire</h2>
+                    <form id="quiz-form">
+                        <div id="questions-container">
+                            <!-- Questions injected by JS -->
+                        </div>
+
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label data-i18n="lbl_age">Child's Age (Months)</label>
+                                <input type="number" id="age" min="6" max="180" value="36">
+                            </div>
+                            <div class="form-group">
+                                <label data-i18n="lbl_sex">Sex</label>
+                                <select id="sex">
+                                    <option value="1">Male</option>
+                                    <option value="0">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label data-i18n="lbl_jaundice">History of Jaundice?</label>
+                                <select id="jaundice">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label data-i18n="lbl_family">Family History of ASD?</label>
+                                <select id="family_asd">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="primary-btn" data-i18n="btn_submit">Submit Questionnaire</button>
+                    </form>
+
+                    <div id="quiz-result" class="result-box hidden">
+                        <h3 id="quiz-result-title"></h3>
+                        <p id="quiz-result-msg"></p>
+                        <button id="print-btn" class="secondary-btn hidden" data-i18n="btn_print">🖨 Print / Save
+                            Result</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Centers Section -->
+            <section id="centers" class="tab-content">
+                <div class="card fade-in">
+                    <h2 data-i18n="centers_title">Find Nearby Autism Centers</h2>
+                    <div class="form-group">
+                        <label data-i18n="lbl_city">Select City</label>
+                        <select id="city-select">
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Pune">Pune</option>
+                        </select>
+                    </div>
+                    <div id="centers-list" class="list-container">
+                        <!-- Centers loaded via JS -->
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
