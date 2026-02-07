@@ -20,16 +20,20 @@ try:
     haar = cv.CascadeClassifier(cascade_path)
     
     # Load recognizer
-    recognizer_path = get_resource_path("autism_recognizer.yml")
-    faces_recog = cv.face.LBPHFaceRecognizer_create(radius=1, neighbors=8, grid_x=8, grid_y=8)
+    # CORRECT FILENAME CASE: autism_Recognizer.yml
+    recognizer_path = get_resource_path("autism_Recognizer.yml")
     
     if os.path.exists(recognizer_path):
+        faces_recog = cv.face.LBPHFaceRecognizer_create(radius=1, neighbors=8, grid_x=8, grid_y=8)
         faces_recog.read(recognizer_path)
+        print(f"Model loaded from {recognizer_path}")
     else:
-        print(f"Warning: autism_recognizer.yml not found at {recognizer_path}")
+        faces_recog = None
+        print(f"Warning: autism_Recognizer.yml not found at {recognizer_path}. Face recognition will be disabled.")
 
 except Exception as e:
     print(f"Error loading models: {e}")
+    faces_recog = None
 
 child = ["Autistic", "Non Autistic"]
 
@@ -55,11 +59,22 @@ def predict_faces_and_annotate(image_np, detected_faces, gray):
         # Ensure correct type
         face_resized = np.array(face_resized, dtype=np.uint8)
         
-        label, confidence = faces_recog.predict(face_resized)
-        
-        # Safe access to child list
-        pred_label = child[label] if label < len(child) else "Unknown"
-        text = f"{pred_label} ({confidence:.2f})"
+        if faces_recog:
+            try:
+                label, confidence = faces_recog.predict(face_resized)
+                # Safe access to child list
+                pred_label = child[label] if label < len(child) else "Unknown"
+                text = f"{pred_label} ({confidence:.2f})"
+            except Exception as e:
+                print(f"Prediction error: {e}")
+                pred_label = "Error"
+                text = "Model Error"
+                confidence = 0.0
+        else:
+            # Fallback if model missing
+            pred_label = "Model Missing"
+            text = "Model Not Loaded"
+            confidence = 0.0
         
         color = (0, 255, 0) # Green
         cv.rectangle(result_image, (x, y), (x+w, y+h), color, 2)
