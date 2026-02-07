@@ -32,27 +32,75 @@ const RESOURCES = {
             "Does your child repeatedly make unusual finger or hand movements near their face?"
         ],
         "about_html": `
-            <h3>🧠 Neurodevelopmental Condition</h3>
-            <p>ASD affects how a child communicates, interacts, and behaves.</p>
-            <h3>🔍 Common Symptoms</h3>
-            <ul>
-                <li>Limited eye contact</li>
-                <li>Not responding to name</li>
-                <li>Repetitive movements</li>
-                <li>Difficulty in social interaction</li>
-            </ul>
-            <h3>🧬 Possible Causes</h3>
-            <ul>
-                <li>Genetic factors</li>
-                <li>Pregnancy-related complications</li>
-                <li>Differences in brain development</li>
-            </ul>
-            <h3>✅ Support & Solutions</h3>
-            <ul>
-                <li>Early detection is very important</li>
-                <li>Speech therapy</li>
-                <li>Behavioral therapy</li>
-            </ul>
+            <div class="about-hero">
+                <h3>🧠 Understanding Autism</h3>
+                <p>Autism Spectrum Disorder (ASD) is a developmental condition that affects how people communicate, interact, and perceive the world. It is a "spectrum" condition, meaning it affects each person differently, with varying strengths and challenges.</p>
+            </div>
+
+            <div class="symptoms-section">
+                <h4>🔍 Early Signs & Symptoms</h4>
+                <div class="symptom-grid">
+                    <div class="symptom-card">
+                        <div class="icon">💬</div>
+                        <h5>Social Communication</h5>
+                        <ul>
+                            <li>Little to no eye contact</li>
+                            <li>Delayed speech or repeating phrases (echolalia)</li>
+                            <li>Difficulty understanding gestures or facial expressions</li>
+                            <li>Does not respond to name by 9 months</li>
+                        </ul>
+                    </div>
+                    <div class="symptom-card">
+                        <div class="icon">🧩</div>
+                        <h5>Behavioral Patterns</h5>
+                        <ul>
+                            <li>Repetitive movements (rocking, spinning, hand-flapping)</li>
+                            <li>Strong attachment to routine; upset by minor changes</li>
+                            <li>Intense focus on specific interests (e.g., wheels, numbers)</li>
+                            <li>Lining up toys or objects excessively</li>
+                        </ul>
+                    </div>
+                    <div class="symptom-card">
+                        <div class="icon">⚡</div>
+                        <h5>Sensory Sensitivities</h5>
+                        <ul>
+                            <li>Over or under-sensitive to sounds, lights, or textures</li>
+                            <li>Covering ears at loud noises</li>
+                            <li>Avoiding certain clothing fabrics</li>
+                            <li>Seeking deep pressure (hugging tight)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="myths-section">
+                <h4>🚫 Common Myths vs. ✅ Facts</h4>
+                <div class="myth-fact-container">
+                    <div class="myth-item">
+                        <p class="myth"><strong>Myth:</strong> Vaccines cause autism.</p>
+                        <p class="fact"><strong>Fact:</strong> Extensive research shows no link between vaccines and ASD.</p>
+                    </div>
+                    <div class="myth-item">
+                        <p class="myth"><strong>Myth:</strong> People with autism cannot feel empathy.</p>
+                        <p class="fact"><strong>Fact:</strong> They often feel deep empathy but may express it differently.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="next-steps-section">
+                <h4>🚀 What Should I Do?</h4>
+                <p>If you notice these signs, <strong>early intervention is key</strong>. It can significantly improve a child's development.</p>
+                <ol>
+                    <li><strong>Screening:</strong> Use our <button class="link-btn" onclick="document.querySelector('[data-tab=\'questionnaire\']').click()">Questionnaire</button> for a preliminary check.</li>
+                    <li><strong>Consultation:</strong> Visit a pediatrician or child psychologist.</li>
+                    <li><strong>Therapy:</strong> Explore Speech Therapy, Occupational Therapy, and ABA.</li>
+                </ol>
+                <div class="resources">
+                    <h5>Useful Resources:</h5>
+                    <a href="https://www.who.int/news-room/fact-sheets/detail/autism-spectrum-disorders" target="_blank" class="resource-link">WHO Fact Sheet ↗</a>
+                    <a href="https://www.cdc.gov/ncbddd/autism/signs.html" target="_blank" class="resource-link">CDC Signs & Symptoms ↗</a>
+                </div>
+            </div>
         `
     },
     "Hindi": {
@@ -87,26 +135,74 @@ const RESOURCES = {
             "क्या बच्चा बार-बार चेहरे के पास उंगलियों या हाथों की अजीब हरकतें करता है?"
         ],
         "about_html": `
-            <h3>🧠 ऑटिज़्म स्पेक्ट्रम डिसऑर्डर</h3>
-            <p>ASD एक विकास संबंधी स्थिति है जो संवाद और व्यवहार को प्रभावित करती है।</p>
-            <h3>🔍 सामान्य लक्षण</h3>
-            <ul>
-                <li>आँखों से संपर्क कम</li>
-                <li>नाम बुलाने पर प्रतिक्रिया न देना</li>
-                <li>बार-बार एक-सी हरकतें</li>
-                <li>सामाजिक खेलों में रुचि कम</li>
-            </ul>
-            <h3>🧬 संभावित कारण</h3>
-            <ul>
-                <li>आनुवंशिक कारण</li>
-                <li>गर्भावस्था के दौरान जटिलताएँ</li>
-            </ul>
-            <h3>✅ समाधान / सहायता</h3>
-            <ul>
-                <li>जल्दी पहचान बहुत ज़रूरी है</li>
-                <li>स्पीच थेरेपी</li>
-                <li>बिहेवियर थेरेपी</li>
-            </ul>
+            <div class="about-hero">
+                <h3>🧠 ऑटिज़्म को समझें</h3>
+                <p>ऑटिज़्म स्पेक्ट्रम डिसऑर्डर (ASD) एक विकासात्मक स्थिति है जो लोगों के बातचीत करने और दुनिया को समझने के तरीके को प्रभावित करती है। यह एक "स्पेक्ट्रम" है, जिसका अर्थ है कि यह हर व्यक्ति को अलग तरह से प्रभावित करता है।</p>
+            </div>
+
+            <div class="symptoms-section">
+                <h4>🔍 शुरुआती संकेत और लक्षण</h4>
+                <div class="symptom-grid">
+                    <div class="symptom-card">
+                        <div class="icon">💬</div>
+                        <h5>सामाजिक संचार (Social Communication)</h5>
+                        <ul>
+                            <li>आँख मिलाने (eye contact) से बचना</li>
+                            <li>देर से बोलना या शब्दों को बार-बार दोहराना</li>
+                            <li>चेहरे के हाव-भाव समझने में कठिनाई</li>
+                            <li>9 महीने की उम्र तक नाम पुकारने पर प्रतिक्रिया न देना</li>
+                        </ul>
+                    </div>
+                    <div class="symptom-card">
+                        <div class="icon">🧩</div>
+                        <h5>व्यवहार (Behavioral Patterns)</h5>
+                        <ul>
+                            <li>बार-बार एक ही हरकत करना (हिलना, घूमना, हाथ फड़फड़ाना)</li>
+                            <li>दिनचर्या में बदलाव से बहुत परेशान होना</li>
+                            <li>खिलौनों को एक लाइन में लगाना</li>
+                            <li>किसी एक चीज़ में बहुत ज़्यादा रुचि रखना</li>
+                        </ul>
+                    </div>
+                    <div class="symptom-card">
+                        <div class="icon">⚡</div>
+                        <h5>संवेदी संवेदनशीलता (Sensory)</h5>
+                        <ul>
+                            <li>तेज़ आवाज़ या तेज़ रोशनी से परेशानी</li>
+                            <li>आवाज़ सुनकर कान बंद कर लेना</li>
+                            <li>कुछ खास कपड़ों को पहनने से मना करना</li>
+                            <li>कसकर गले लगाना पसंद करना</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="myths-section">
+                <h4>🚫 मिथक और ✅ तथ्य</h4>
+                <div class="myth-fact-container">
+                    <div class="myth-item">
+                        <p class="myth"><strong>मिथक:</strong> टीके (Vaccines) ऑटिज़्म का कारण बनते हैं।</p>
+                        <p class="fact"><strong>तथ्य:</strong> शोध से साबित हुआ है कि टीकों और ऑटिज़्म का कोई संबंध नहीं है।</p>
+                    </div>
+                    <div class="myth-item">
+                        <p class="myth"><strong>मिथक:</strong> ऑटिज़्म वाले लोग भावनाएं महसूस नहीं करते।</p>
+                        <p class="fact"><strong>तथ्य:</strong> वे गहरी भावनाएं महसूस करते हैं, बस उन्हें व्यक्त करने का तरीका अलग होता है।</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="next-steps-section">
+                <h4>🚀 आगे क्या करें?</h4>
+                <p>अगर आपको ये संकेत दिखें, तो <strong>शुरुआती हस्तक्षेप (Early Intervention)</strong> बहुत महत्वपूर्ण है।</p>
+                <ol>
+                    <li><strong>जाँच करें:</strong> हमारी <button class="link-btn" onclick="document.querySelector('[data-tab=\'questionnaire\']').click()">प्रश्नावली (Questionnaire)</button> का उपयोग करें।</li>
+                    <li><strong>डॉक्टर से मिलें:</strong> बाल रोग विशेषज्ञ या मनोवैज्ञानिक से सलाह लें।</li>
+                    <li><strong>थेरेपी:</strong> स्पीच थेरेपी और ऑक्यूपेशनल थेरेपी मदद कर सकती है।</li>
+                </ol>
+                <div class="resources">
+                    <h5>उपयोगी जानकारी:</h5>
+                    <a href="https://www.who.int/news-room/fact-sheets/detail/autism-spectrum-disorders" target="_blank" class="resource-link">WHO फैक्ट शीट ↗</a>
+                </div>
+            </div>
         `
     }
 };
