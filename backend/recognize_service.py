@@ -12,15 +12,19 @@ def get_resource_path(filename):
 
 # Load resources once (global scope for simplicity in this script, 
 # in a larger app we might wrap in a class or startup event)
+# Load resources once
 try:
-    # Use cv2's built-in haar cascade if specific file not found, or try the local one
-    cascade_path = cv.data.haarcascades + 'haarcascade_frontalface_default.xml'
-    # Or fallback to previous hardcoded one if user really wants it, but `cv.data` is safer.
-    
-    haar = cv.CascadeClassifier(cascade_path)
+    # Use local haar_cascade.xml
+    cascade_path = get_resource_path("haar_cascade.xml")
+    if os.path.exists(cascade_path):
+        haar = cv.CascadeClassifier(cascade_path)
+    else:
+        # Fallback to cv2 default if local is missing
+        print(f"Warning: local haar_cascade.xml not found at {cascade_path}. Using default.")
+        cascade_path = cv.data.haarcascades + 'haarcascade_frontalface_default.xml'
+        haar = cv.CascadeClassifier(cascade_path)
     
     # Load recognizer
-    # CORRECT FILENAME CASE: autism_Recognizer.yml
     recognizer_path = get_resource_path("autism_Recognizer.yml")
     
     if os.path.exists(recognizer_path):
