@@ -1,6 +1,6 @@
 __pycache__/
 *.pyc
-autism_Recognizer.yml
+*autism_Recognizer.yml
 .vscode/
 .idea/
 venv/
